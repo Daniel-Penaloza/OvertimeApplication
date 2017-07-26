@@ -6,3 +6,29 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "posts.scss";
+
+/*---------------------------*/
+/* BASIC SETUP */
+/*---------------------------*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	color: 555;
+	font-family: 'PoppinsRegular', 'Arial', sans-serif;
+	font-size: 20px;
+	font-weight: 300;
+	text-rendering: optimizeLegibility;
+	overflow-x: hidden;
+	height: auto;
+	min-height: 100%;
+}
+
+/*---------------------------*/
+/* BASIC SETUP */
+/*---------------------------*/
