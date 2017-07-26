@@ -39,7 +39,7 @@ describe 'navigate' do
 		it 'can be created from new form page' do
 			fill_in 'post[date]', with: Date.today
 			fill_in 'post[rationale]', with: "Some rationale"
-			click_on "Save"
+			click_on "Create Post"
 
 			expect(page).to have_content("Some rationale")
 		end
@@ -47,9 +47,31 @@ describe 'navigate' do
 		it 'will have a user associated it' do
 			fill_in 'post[date]', with: Date.today
 			fill_in 'post[rationale]', with: "User Association"
-			click_on "Save"
+			click_on "Create Post"
 
 			expect(User.last.posts.last.rationale).to eq("User Association")
+		end
+	end
+
+	describe 'edit' do
+		before do
+			@post = FactoryGirl.create(:post)
+		end
+
+		it 'can be reached by clicking edit on index page' do
+			visit posts_path
+
+			click_link("edit_#{@post.id}_post")
+			expect(page.status_code).to eq(200)
+		end
+
+		it 'can be edited' do
+			visit edit_post_path(@post)
+			fill_in 'post[date]', with: Date.tomorrow
+			fill_in 'post[rationale]', with: "Edited Content"
+			click_on "Update Post"
+
+			expect(page).to have_content("Edited Content")
 		end
 	end
 end
