@@ -7,7 +7,7 @@ describe 'navigate' do
 			expect(page.status_code).to eq(200)
 		end
 
-		it 'has a title of Post' do
+		it 'has a title of Posts' do
 			visit posts_path
 			expect(page).to have_content(/Posts/)
 		end
