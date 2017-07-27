@@ -89,6 +89,7 @@ describe 'navigate' do
 
 			click_on("delete_#{@post.id}_post")
 			expect(page.status_code).to eq(200)
+			expect(page).not_to have_content("Some Rationale")
 		end
 	end
 end
