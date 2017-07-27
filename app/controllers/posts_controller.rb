@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :set_post, only: [:show, :edit, :update]
+	before_action :set_post, only: [:show, :edit, :update, :destroy]
 	def index
 		@posts = Post.all
 	end
@@ -35,6 +35,12 @@ class PostsController < ApplicationController
 			flash[:danger] = "The post can't be updated"
 			redirect_to :edit
 		end
+	end
+
+	def destroy
+		@post.delete
+		flash[:warning] = "The post was deleted"
+		redirect_to posts_path
 	end
 
 	private
