@@ -30,15 +30,15 @@ class PostsController < ApplicationController
 	def update
 		if @post.update(post_params)
 			flash[:success] = "The post was successfully update"
-			redirect_to @post
+			redirect_to post_path(@post)
 		else
 			flash[:danger] = "The post can't be updated"
-			redirect_to :edit
+			render :edit
 		end
 	end
 
 	def destroy
-		@post.delete
+		@post.destroy
 		flash[:warning] = "The post was deleted"
 		redirect_to posts_path
 	end

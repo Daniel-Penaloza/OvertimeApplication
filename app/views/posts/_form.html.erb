@@ -1,9 +1,21 @@
-<%= form_for @post do |f| %>
-	<%= f.label :date %>
-	<%= f.date_field :date %>
-
-	<%= f.label :rationale %>
-	<%= f.text_area :rationale %>
-
-	<%= f.submit if @post.new_record? ? "Create Post" : "Update Post" %>
+<% if @post.errors.any? %>
+	<%= render "shared/errors", object: @post %>
 <% end %>
+
+<div class="form-horizontal">
+	<%= form_for @post do |f| %>
+		<div class="form-group">
+			<%= f.label :date, class: "control-label" %>
+			<%= f.date_field :date, class: "form-control" %>	
+		</div>
+		
+		<div class="form-group">
+			<%= f.label :rationale, class: "control-label" %>
+			<%= f.text_area :rationale, class: "form-control" %>
+		</div>
+		
+		<div class="form-group">
+			<%= f.submit "Save Post", class: "btn btn-info btn-block" %>
+		</div>
+	<% end %>
+</div>

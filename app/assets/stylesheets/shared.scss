@@ -1,3 +1,4 @@
+/* Navbar */
 .custom-navbar {
 	width: 100%;
 	height: auto;
@@ -5,3 +6,56 @@
 	border-bottom: 1px solid #ccc;	
 	margin-top: 15px;
 }
+/* Navbar */
+
+
+/* Alert Notice Bootstrap */
+.alert {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.alert-notice {
+	background-color: #401F7C;
+	color: #fff;
+}
+
+.alert-notice a.close {
+	color: white;
+	opacity: 1;
+	font-size: 200%;
+}
+
+.alert-notice a.close:hover {
+	opacity: 0.5;
+}
+/* Alert Notice Bootstrap */
+
+/* Errors Displayed */
+.error-container {
+	border: 2px solid #6d071f;
+	margin: 0;
+}
+
+.error-container h3 {
+	background-color: #6d071f;
+	color: white;
+	margin: 0;
+	width: 100%;
+	padding: 10px 10px;
+}
+
+.error-container h4 {
+	padding: 10px 10px;
+}
+
+.error-container ul {
+	list-style: none;
+	padding: 2px 10px;
+	font-size: 70%;
+}
+
+.error-container li {
+	line-height: 5px;
+}
+/* Errors Displayed */

@@ -1,0 +1,9 @@
+<div class="error-container">
+	<h3><%= pluralize(object.errors.count, "Error") + " Prohibited To Save This Record" %></h3>
+	<h4>Please correct the following errors: </h4>
+	<% object.errors.full_messages.each do |error| %>
+		<ul>
+			<li><%= error %>.</li> 
+		</ul>
+	<% end %>
+</div>
