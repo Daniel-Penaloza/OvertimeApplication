@@ -32,3 +32,25 @@ Stuff that we need.
 - Bootstrap.
 
 # RSPEC AND CAPYBARA FOR TESTING.
+
+# Approval Workflow
+In this way the user can make a post but the admin user need to aprove this post.
+So the relational in the database is going to work in this way:
+
+1. A user is going to enter a post.
+2. A admin user is going to have the hability to review it.
+3. A admin user is going to have the hability to approve or reject the post.
+
+3.1 if we approve this we need to have the hability to lock the record after is been approved.
+3.2 if is rejected it's get back to the user that enter the post.
+
+## Todo:
+1. Create a new attribute inside of posts (status).
+2. Status need to be present.
+3. Status need to have a default value.
+4. Implement approval stages.
+5. Locking.
+
+## Stages
+Record -> Approved => Lock The Record.
+Record -> Rejected => Back To User.
