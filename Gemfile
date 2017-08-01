@@ -39,3 +39,5 @@ gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 
 gem 'administrate', '~> 0.8.1'
 gem 'bourbon', '~> 4.3', '>= 4.3.4'
+
+gem 'pundit', '~> 1.1'
