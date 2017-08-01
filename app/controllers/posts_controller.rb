@@ -25,9 +25,12 @@ class PostsController < ApplicationController
 	end
 
 	def edit
+		authorize @post
 	end
 
 	def update
+		authorize @post
+		
 		if @post.update(post_params)
 			flash[:success] = "The post was successfully update"
 			redirect_to post_path(@post)
