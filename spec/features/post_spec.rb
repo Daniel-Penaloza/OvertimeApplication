@@ -20,8 +20,8 @@ describe 'navigate' do
 		end
 
 		it 'has a list of posts' do
-			post1 = FactoryGirl.build_stubbed(:post)
-			post2 = FactoryGirl.build_stubbed(:second_post)
+			post1 = FactoryGirl.build_stubbed(:post, user_id: @user.id)
+			post2 = FactoryGirl.build_stubbed(:second_post, user_id: @user.id)
 			visit posts_path
 			expect(page).to have_content(/Rationale|Content/)
 		end
@@ -62,7 +62,7 @@ describe 'navigate' do
 
 	describe 'edit' do
 		before do
-			@post = FactoryGirl.create(:post)
+			@post = FactoryGirl.create(:post, user_id: @user.id)
 		end
 
 		it 'can be reached by clicking edit on index page' do
@@ -79,6 +79,15 @@ describe 'navigate' do
 			click_on "Save Post"
 
 			expect(page).to have_content("Edited Content")
+		end
+
+		it 'cannot be edited by a non authorized user' do
+			logout(:user)
+			non_authorized_user = FactoryGirl.create(:non_authorized_user)
+			login_as(non_authorized_user, :scope => :user)
+
+			visit edit_post_path(@post)
+			expect(current_path).to eq(root_path)
 		end
 	end
 
