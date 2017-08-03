@@ -5,6 +5,11 @@
 <div class="form-horizontal">
 	<%= form_for @post do |f| %>
 		<div class="form-group">
+			<%= f.label :overtime_request, class: "control-label" %>
+			<%= f.text_field :overtime_request, class: "form-control" %>
+		</div>
+
+		<div class="form-group">
 			<%= f.label :date, class: "control-label" %>
 			<%= f.date_field :date, class: "form-control" %>	
 		</div>
