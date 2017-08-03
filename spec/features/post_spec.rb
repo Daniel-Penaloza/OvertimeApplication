@@ -1,9 +1,14 @@
 require 'rails_helper'
 
 describe 'navigate' do
+	let(:user) { FactoryGirl.create(:user) }
+
+	let!(:post) do
+		Post.create(date: Date.today, rationale: "Rationale", user_id: user.id)
+	end
+
 	before do
-		@user = FactoryGirl.create(:user)
-		login_as(@user, :scope => :user)
+		login_as(user, :scope => :user)
 	end
 
 	describe 'index' do
@@ -20,17 +25,16 @@ describe 'navigate' do
 		end
 
 		it 'has a list of posts' do
+			post1 = FactoryGirl.build_stubbed(:post)
+			post2 = FactoryGirl.build_stubbed(:second_post)
 			visit posts_path
 			expect(page).to have_content(/Rationale|Content/)
 		end
 
 		it 'has a scope so that only post creators can see their posts' do
-			post1 = FactoryGirl.create(:post, user_id: @user.id)
-			post2 = FactoryGirl.create(:second_post, user_id: @user.id)
 			post_from_other_user = FactoryGirl.create(:post_from_other_user)
 			
 			visit posts_path
-			expect(page).to have_content(post1.rationale && post2.rationale)
 			expect(page).to_not have_content(post_from_other_user.rationale)
 		end
 	end
@@ -69,19 +73,15 @@ describe 'navigate' do
 	end
 
 	describe 'edit' do
-		before do
-			@post = FactoryGirl.create(:post, user_id: @user.id)
-		end
-
 		it 'can be reached by clicking edit on index page' do
 			visit posts_path
 
-			click_link("edit_#{@post.id}_post")
+			click_link("edit_#{post.id}_post")
 			expect(page.status_code).to eq(200)
 		end
 
 		it 'can be edited' do
-			visit edit_post_path(@post)
+			visit edit_post_path(post)
 			fill_in 'post[date]', with: Date.tomorrow
 			fill_in 'post[rationale]', with: "Edited Content"
 			click_on "Save Post"
@@ -94,17 +94,16 @@ describe 'navigate' do
 			non_authorized_user = FactoryGirl.create(:non_authorized_user)
 			login_as(non_authorized_user, :scope => :user)
 
-			visit edit_post_path(@post)
+			visit edit_post_path(post)
 			expect(current_path).to eq(root_path)
 		end
 	end
 
 	describe 'delete' do
 		it 'can be deleted' do
-			@post = FactoryGirl.create(:post, user_id: @user.id)
 			visit posts_path
 
-			click_on("delete_#{@post.id}_post")
+			click_on("delete_#{post.id}_post")
 			expect(page.status_code).to eq(200)
 			expect(page).not_to have_content("Some Rationale")
 		end
