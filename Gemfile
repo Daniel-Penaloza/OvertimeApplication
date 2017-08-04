@@ -41,3 +41,4 @@ gem 'administrate', '~> 0.8.1'
 gem 'bourbon', '~> 4.3', '>= 4.3.4'
 
 gem 'pundit', '~> 1.1'
+gem 'twilio-ruby', '~> 4.11', '>= 4.11.1'
