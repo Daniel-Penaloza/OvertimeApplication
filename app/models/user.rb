@@ -2,6 +2,11 @@ class User < ApplicationRecord
   has_many :posts
   
   validates_presence_of :first_name, :last_name, :phone
+
+  PHONE_REGEX = /\A\d{10}\Z/
+  validates_format_of :phone, with: PHONE_REGEX
+  validates :phone, length: { is: 10 }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
