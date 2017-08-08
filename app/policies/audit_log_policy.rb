@@ -3,6 +3,10 @@ class AuditLogPolicy < ApplicationPolicy
 		return true if admin?
 	end
 
+	def confirm?
+		record.user_id == user.id || admin?
+	end
+
 	private
 		def admin?
 			admin_types.include?(user.type)
