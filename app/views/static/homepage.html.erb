@@ -1,3 +1,7 @@
 <%= render "shared/messages" %>
 
-<h1>This is the home page</h1>
+<% if admin_types.include?(current_user.try(:type)) %>
+	<%= render "admin" %>
+<% else %>
+	<%= render "employee" %>
+<% end %>
