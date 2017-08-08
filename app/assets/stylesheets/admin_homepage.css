@@ -1,0 +1,16 @@
+.pending-overtime-approvals,
+.pending-submissions {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	margin: 20px 0;
+	padding: 20px;
+	background-color: #ecf0f1;
+}
+
+.pending-block {
+	background-color: #2980b9;
+	color: white;
+	padding: 15px;
+	margin: 15px;
+}
