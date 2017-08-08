@@ -1,0 +1,16 @@
+<% @recent_audit_items.each do |recent_audit_items| %>
+	<div class="pending-block col-md-3">
+		<h4><%= recent_audit_items.user.full_name %></h4>
+		<p>
+			<span class="pending-details" >Week Starting: </span><%= recent_audit_items.start_date %>
+		</p>
+
+		<p>
+			<span class="pending-details" >Week Ending: </span><%= recent_audit_items.end_date || status_label('pending') %>
+		</p>
+				
+		<p>
+			<span class="pending-details">Status: </span><%= status_label(recent_audit_items.status) %>
+		</p>
+	</div>
+<% end %>

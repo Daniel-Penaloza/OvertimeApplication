@@ -4,5 +4,15 @@
 </div>
 
 <div class="pending-submissions row">	
-	
+	<h2>Confirmation Log</h2>
+
+	<%= render partial: "confirmation_log", locals: { recent_audit_items: @recent_audit_items }%>
+
+	<hr>
+
+	<div class="clearfix"></div>
+
+	<div>
+		<%= link_to "View All Items", audit_logs_path, class: "btn btn-primary btn-block" %>
+	</div>
 </div>

@@ -8,7 +8,8 @@
 	background-color: #ecf0f1;
 }
 
-.pending-overtime-approvals h2 {
+.pending-overtime-approvals h2,
+.pending-submissions h2 {
 	text-transform: uppercase;
 	text-align: center;
 }
@@ -27,4 +28,8 @@
 
 .pending-details {
 	font-weight: 900;
+}
+
+.pending-block:hover {
+	background-color: #20638f;
 }
