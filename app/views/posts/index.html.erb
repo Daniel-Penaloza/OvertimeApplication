@@ -1,7 +1,5 @@
 <%= render "shared/messages" %>
-
 <h1> Posts </h1>
-
 <table class="table table-striped table-hover">
 	<thead>
 		<tr>
@@ -20,3 +18,4 @@
 		<%= render @posts %>
 	</tbody>
 </table>
+<%= paginate @posts %>

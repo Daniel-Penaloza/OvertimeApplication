@@ -43,3 +43,5 @@ gem 'bourbon', '~> 4.3', '>= 4.3.4'
 
 gem 'pundit', '~> 1.1'
 gem 'twilio-ruby', '~> 4.11', '>= 4.11.1'
+
+gem 'kaminari', '~> 1.0', '>= 1.0.1'
