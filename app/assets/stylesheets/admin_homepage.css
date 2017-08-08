@@ -8,9 +8,23 @@
 	background-color: #ecf0f1;
 }
 
+.pending-overtime-approvals h2 {
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.pending-overtime-approvals hr {
+	color: red;
+}
+
 .pending-block {
 	background-color: #2980b9;
 	color: white;
 	padding: 15px;
-	margin: 15px;
+	margin: 15px 45px;
+	font-size: 75%;
+}
+
+.pending-details {
+	font-weight: 900;
 }
