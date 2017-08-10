@@ -30,12 +30,15 @@ log:clear
 middleware
 notes
 notes:custom
+notification:manager_email
 notification:sms
 restart
 routes
 secret
 spec
+spec:controllers
 spec:features
+spec:mailers
 spec:models
 stats
 test
