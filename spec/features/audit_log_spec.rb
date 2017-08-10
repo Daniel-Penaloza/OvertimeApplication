@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "AuditLog Features" do
-	let!(:audit_log) { FactoryGirl.create(:audit_log) }
+	let!(:audit_log) {FactoryGirl.create(:audit_log)}
 
 	describe "index" do 
 		before do
