@@ -20,7 +20,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~>3.0'
   gem 'database_cleaner'
-  gem 'factory_girl_rails', '~> 4.8', :require => false
+  gem 'factory_girl_rails', '~> 4.8'
   gem 'dotenv-rails'
 end
 
